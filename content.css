@@ -1,0 +1,64 @@
+/* Content script styles for NYTimes Games Solver */
+
+#nytimes-games-solver-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #1a73e8 0%, #34a853 50%, #ea4335 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    transition: all 0.3s ease;
+    border: 2px solid white;
+}
+
+#nytimes-games-solver-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+#nytimes-games-solver-btn:active {
+    transform: scale(0.95);
+}
+
+/* Animation for the floating button */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+#nytimes-games-solver-btn {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #nytimes-games-solver-btn {
+        bottom: 15px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
+    }
+}
+
+/* Ensure the button doesn't interfere with NYTimes site elements */
+#nytimes-games-solver-btn {
+    pointer-events: auto;
+}
+
+/* Hide button on certain NYTimes pages where it might interfere */
+@media (max-width: 480px) {
+    #nytimes-games-solver-btn {
+        display: none;
+    }
+}
